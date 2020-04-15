@@ -769,12 +769,13 @@ h6 {
     display: grid;
     justify-content: space-between;
     grid-gap: 30px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid lightblue;
 }
 
 @media (max-width: 980px) {
     .post-feed {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 }
 @media (max-width: 680px) {
@@ -785,11 +786,65 @@ h6 {
 
 .post-card {
     color: inherit;
+    position: relative;
     text-decoration: none;
+    border-right: 5px solid lightblue;
+    grid-column-start: 1;
+    grid-column-end: 2;
 }
 
 .post-card:hover {
     text-decoration: none;
+}
+
+.post-card:nth-child(even):after {
+    position: absolute;
+    content:"";
+    left: 100%;
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid lightblue;
+}
+
+@media (max-width: 980px) {
+    .post-card:nth-child(even):after {
+        display: none;
+    }
+}
+
+@media (max-width: 680px) {
+    .post-card:nth-child(even):after {
+        display: none;
+    }
+}
+
+.post-card:nth-child(odd):after {
+    position: absolute;
+    content:"";
+    left: 100%;
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid lightblue;
+}
+
+@media (max-width: 980px) {
+    .post-card:nth-child(odd):after {
+        display: none;
+    }
+}
+
+@media (max-width: 680px) {
+    .post-card:nth-child(odd):after {
+        display: none;
+    }
+}
+
+.post-card:after{
+    top: 40px;
 }
 
 .post-card-tags {
@@ -834,6 +889,39 @@ h6 {
 .post-card-footer-right {
     display: flex;
     flex-direction: column;
+}
+
+.post-card-aside {
+    position: absolute;
+    left: 102%;
+    top: 20px;
+    border: 1px solid red ;
+    border-radius: 5px;
+    background: lightblue;
+    padding: 5%;
+}
+
+@media (max-width: 980px) {
+    .post-card-aside {
+        position: unset;
+        border: 1px solid red ;
+        border-radius: 5px;
+        background: lightblue;
+        padding: 5%;
+    }
+}
+
+@media (max-width: 680px) {
+    .post-card-aside {
+        position: unset;
+        border: 1px solid red ;
+        border-radius: 5px;
+        background: lightblue;
+        padding: 5%;
+    }
+}
+
+.post-card-jobInfo {
 }
 
 .post-card-avatar {
